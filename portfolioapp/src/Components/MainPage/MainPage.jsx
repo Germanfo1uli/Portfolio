@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './MainPage.module.css';
 import { FaGithub, FaTelegram, FaSteam, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import AboutUs from '../AboutUs/AboutUs';
+import GermanProfile from "../GermanProfile/GermanProfile";
 
 const MainPage = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -36,11 +37,11 @@ const MainPage = () => {
         const particles = [];
         const particleCount = 100;
 
-        // Set canvas size
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Create particles
+
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
@@ -52,27 +53,27 @@ const MainPage = () => {
             });
         }
 
-        // Animation loop
+
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Update and draw particles
+
             particles.forEach(particle => {
                 particle.x += particle.speedX;
                 particle.y += particle.speedY;
 
-                // Bounce off walls
+
                 if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
                 if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
 
-                // Draw particle
+
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
                 ctx.fill();
             });
 
-            // Draw connections between particles
+
             ctx.strokeStyle = darkMode ? 'rgba(150, 150, 150, 0.1)' : 'rgba(50, 50, 50, 0.1)';
             ctx.lineWidth = 0.5;
 
@@ -96,7 +97,7 @@ const MainPage = () => {
 
         animate();
 
-        // Handle window resize
+
         const handleResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -108,13 +109,13 @@ const MainPage = () => {
 
     return (
         <div className={`${styles.container} ${darkMode ? styles.dark : styles.light}`}>
-            {/* Canvas для динамического фона с частицами */}
+
             <canvas
                 ref={canvasRef}
                 className={styles.particlesCanvas}
             />
 
-            {/* Абстрактные декоративные элементы */}
+
             <div className={styles.abstractShape1}></div>
             <div className={styles.abstractShape2}></div>
             <div className={styles.abstractShape3}></div>
@@ -124,10 +125,10 @@ const MainPage = () => {
                 <div className={styles.orb3}></div>
             </div>
 
-            {/* Навигационная панель */}
+
             <nav className={`${styles.navbar} ${isVisible ? styles.fadeIn : ''}`}>
                 <div className={styles.logo}>
-                    <span>Nexus</span>
+                    <span>WebCatDev</span>
                     <div className={styles.logoDot}></div>
                 </div>
 
@@ -153,7 +154,7 @@ const MainPage = () => {
                 </button>
             </nav>
 
-            {/* Основной контент */}
+
             <main className={styles.mainContent}>
                 <div className={`${styles.hero} ${isVisible ? styles.slideUp : ''}`}>
                     <div className={styles.titleWrapper}>
@@ -170,7 +171,6 @@ const MainPage = () => {
                     </p>
 
                     <div className={styles.buttons}>
-                        {/* Кнопка "О нас" с модальным окном */}
                         <AboutUs isDarkMode={darkMode} />
 
                         <div className={styles.socials}>
@@ -191,11 +191,12 @@ const MainPage = () => {
                 </div>
             </main>
 
-            {/* Дополнительные декоративные элементы */}
+
             <div className={styles.scrollIndicator}>
                 <div className={styles.scrollLine}></div>
                 <span>Scroll</span>
             </div>
+            <GermanProfile isDarkMode={darkMode} />
         </div>
     );
 };
