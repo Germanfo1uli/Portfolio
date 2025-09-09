@@ -4,8 +4,10 @@ import { FaGithub, FaTelegram, FaSteam, FaReact, FaHtml5, FaCss3Alt, FaJs, FaGit
     FaFigma, FaNpm, FaSass, FaBootstrap, FaNodeJs, FaRocket, FaCode, FaMobile, FaTools,
     FaLayerGroup, FaPalette, FaLightbulb, FaClock, FaHeart, FaStar } from 'react-icons/fa';
 import { SiTypescript, SiRedux, SiWebpack, SiJest, SiTailwindcss } from 'react-icons/si';
+import { useTheme } from '../../context/ThemeContext';
 
-const GermanProfile = ({ isDarkMode }) => {
+const GermanProfile = () => {
+    const { darkMode } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -14,7 +16,7 @@ const GermanProfile = ({ isDarkMode }) => {
     }, []);
 
     return (
-        <div className={`${styles.profileContainer} ${isDarkMode ? styles.dark : styles.light}`}>
+        <div className={`${styles.profileContainer} ${darkMode ? styles.dark : styles.light}`}>
 
             <div className={styles.backgroundElements}>
                 <div className={styles.bgCircle1}></div>
