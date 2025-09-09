@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AboutUs.module.css';
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaGithub, FaTimes, FaPaperPlane, FaUser, FaEnvelope, FaComment } from 'react-icons/fa';
+import {SiDotnet, SiPostgresql } from 'react-icons/si';
 
 const AboutUs = ({ isDarkMode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,14 +12,11 @@ const AboutUs = ({ isDarkMode }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
-            // Disable pointer events on main content to prevent background interaction
             document.querySelector('main')?.style.setProperty('pointer-events', 'none');
         } else {
             document.body.style.overflow = 'unset';
-            // Re-enable pointer events when modal closes
             document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
         }
-        // Cleanup on component unmount
         return () => {
             document.body.style.overflow = 'unset';
             document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
@@ -34,9 +32,7 @@ const AboutUs = ({ isDarkMode }) => {
     };
 
     const openModal = () => {
-        // Scroll to top before opening modal
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Small delay to ensure scroll completes before modal opens
         setTimeout(() => {
             setIsOpen(true);
             setIsClosing(false);
@@ -125,6 +121,24 @@ const AboutUs = ({ isDarkMode }) => {
                                                     <FaGithub />
                                                 </div>
                                                 <span>GitHub</span>
+                                            </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiDotnet />
+                                                </div>
+                                                <span>C#</span>
+                                            </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiPostgresql />
+                                                </div>
+                                                <span>pgAdmin</span>
+                                            </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiPostgresql />
+                                                </div>
+                                                <span>SQL</span>
                                             </div>
                                         </div>
                                     </div>
