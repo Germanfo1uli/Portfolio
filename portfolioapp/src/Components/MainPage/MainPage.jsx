@@ -37,10 +37,8 @@ const MainPage = () => {
         const particles = [];
         const particleCount = 100;
 
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
@@ -53,26 +51,21 @@ const MainPage = () => {
             });
         }
 
-
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
 
             particles.forEach(particle => {
                 particle.x += particle.speedX;
                 particle.y += particle.speedY;
 
-
                 if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
                 if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
-
 
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
                 ctx.fill();
             });
-
 
             ctx.strokeStyle = darkMode ? 'rgba(150, 150, 150, 0.1)' : 'rgba(50, 50, 50, 0.1)';
             ctx.lineWidth = 0.5;
@@ -97,7 +90,6 @@ const MainPage = () => {
 
         animate();
 
-
         const handleResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -109,12 +101,10 @@ const MainPage = () => {
 
     return (
         <div className={`${styles.container} ${darkMode ? styles.dark : styles.light}`}>
-
             <canvas
                 ref={canvasRef}
                 className={styles.particlesCanvas}
             />
-
 
             <div className={styles.abstractShape1}></div>
             <div className={styles.abstractShape2}></div>
@@ -124,7 +114,6 @@ const MainPage = () => {
                 <div className={styles.orb2}></div>
                 <div className={styles.orb3}></div>
             </div>
-
 
             <nav className={`${styles.navbar} ${isVisible ? styles.fadeIn : ''}`}>
                 <div className={styles.logo}>
@@ -154,48 +143,49 @@ const MainPage = () => {
                 </button>
             </nav>
 
+            <div className={styles.contentWrapper}>
+                <main className={styles.mainContent}>
+                    <div className={`${styles.hero} ${isVisible ? styles.slideUp : ''}`}>
+                        <div className={styles.titleWrapper}>
+                            <h1 className={styles.title}>
+                                <span className={styles.titleLine}><span className={styles.titleMask}>Мы создаём</span></span>
+                                <span className={styles.titleLine}><span className={styles.titleMask}><span className={styles.highlight}>цифровые</span> решения</span></span>
+                                <span className={styles.titleLine}><span className={styles.titleMask}>будущего</span></span>
+                            </h1>
+                        </div>
 
-            <main className={styles.mainContent}>
-                <div className={`${styles.hero} ${isVisible ? styles.slideUp : ''}`}>
-                    <div className={styles.titleWrapper}>
-                        <h1 className={styles.title}>
-                            <span className={styles.titleLine}><span className={styles.titleMask}>Мы создаём</span></span>
-                            <span className={styles.titleLine}><span className={styles.titleMask}><span className={styles.highlight}>цифровые</span> решения</span></span>
-                            <span className={styles.titleLine}><span className={styles.titleMask}>будущего</span></span>
-                        </h1>
-                    </div>
+                        <p className={styles.subtitle}>
+                            Команда экспертов, специализирующихся на инновационных веб-технологиях,
+                            дизайне и разработке программного обеспечения.
+                        </p>
 
-                    <p className={styles.subtitle}>
-                        Команда экспертов, специализирующихся на инновационных веб-технологиях,
-                        дизайне и разработке программного обеспечения.
-                    </p>
+                        <div className={styles.buttons}>
+                            <AboutUs isDarkMode={darkMode} />
 
-                    <div className={styles.buttons}>
-                        <AboutUs isDarkMode={darkMode} />
-
-                        <div className={styles.socials}>
-                            <a href="#" className={styles.socialLink} aria-label="GitHub">
-                                <FaGithub />
-                                <span className={styles.tooltip}>GitHub</span>
-                            </a>
-                            <a href="#" className={styles.socialLink} aria-label="Telegram">
-                                <FaTelegram />
-                                <span className={styles.tooltip}>Telegram</span>
-                            </a>
-                            <a href="#" className={styles.socialLink} aria-label="Steam">
-                                <FaSteam />
-                                <span className={styles.tooltip}>Steam</span>
-                            </a>
+                            <div className={styles.socials}>
+                                <a href="#" className={styles.socialLink} aria-label="GitHub">
+                                    <FaGithub />
+                                    <span className={styles.tooltip}>GitHub</span>
+                                </a>
+                                <a href="#" className={styles.socialLink} aria-label="Telegram">
+                                    <FaTelegram />
+                                    <span className={styles.tooltip}>Telegram</span>
+                                </a>
+                                <a href="#" className={styles.socialLink} aria-label="Steam">
+                                    <FaSteam />
+                                    <span className={styles.tooltip}>Steam</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                </main>
+
+                <div className={styles.scrollIndicator}>
+                    <div className={styles.scrollLine}></div>
+                    <span>Scroll</span>
                 </div>
-            </main>
-
-
-            <div className={styles.scrollIndicator}>
-                <div className={styles.scrollLine}></div>
-                <span>Scroll</span>
             </div>
+
             <GermanProfile isDarkMode={darkMode} />
         </div>
     );

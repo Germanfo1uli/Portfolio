@@ -440,8 +440,13 @@
 }
 
 
+.contentWrapper {
+    position: relative;
+    min-height: 20vh;
+}
+
 .scrollIndicator {
-    position: fixed;
+    position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -450,7 +455,7 @@
     align-items: center;
     color: #888;
     font-size: 0.8rem;
-    z-index: 5;
+    z-index: 2;
     opacity: 0;
     animation: fadeIn 1s ease forwards;
     animation-delay: 2s;
