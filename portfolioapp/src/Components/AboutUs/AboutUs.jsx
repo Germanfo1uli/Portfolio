@@ -11,9 +11,18 @@ const AboutUs = ({ isDarkMode }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            // Disable pointer events on main content to prevent background interaction
+            document.querySelector('main')?.style.setProperty('pointer-events', 'none');
         } else {
             document.body.style.overflow = 'unset';
+            // Re-enable pointer events when modal closes
+            document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
         }
+        // Cleanup on component unmount
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
+        };
     }, [isOpen]);
 
     const closeModal = () => {
@@ -25,8 +34,13 @@ const AboutUs = ({ isDarkMode }) => {
     };
 
     const openModal = () => {
-        setIsOpen(true);
-        setIsClosing(false);
+        // Scroll to top before opening modal
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Small delay to ensure scroll completes before modal opens
+        setTimeout(() => {
+            setIsOpen(true);
+            setIsClosing(false);
+        }, 300);
     };
 
     const formik = useFormik({
@@ -61,8 +75,6 @@ const AboutUs = ({ isDarkMode }) => {
             >
                 О нас
             </button>
-
-
             {isOpen && (
                 <div className={`${styles.modalOverlay} ${isClosing ? styles.closingOverlay : styles.openingOverlay}`} onClick={closeModal}>
                     <div
@@ -72,7 +84,6 @@ const AboutUs = ({ isDarkMode }) => {
                         <button className={`${styles.closeBtn} ${isDarkMode ? styles.dark : styles.light}`} onClick={closeModal}>
                             <FaTimes />
                         </button>
-
                         <div className={styles.modalContent}>
                             <div className={`${styles.leftPanel} ${isDarkMode ? styles.dark : styles.light} ${isClosing ? styles.slideLeftOut : styles.slideLeftIn}`}>
                                 <div className={styles.panelContent}>
@@ -82,7 +93,6 @@ const AboutUs = ({ isDarkMode }) => {
                                         мы с энтузиазмом изучаем новые технологии и применяем их на практике. Для нас каждый проект — это шаг вперед
                                         в стремлении к качеству и мастерству.
                                     </p>
-
                                     <div className={styles.techStack}>
                                         <h3>Наш стек технологий</h3>
                                         <div className={styles.techIcons}>
@@ -142,7 +152,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.name}</div>
                                             ) : null}
                                         </div>
-
                                         <div className={styles.formGroup}>
                                             <div className={styles.inputWrapper}>
                                                 <FaEnvelope className={styles.inputIcon} />
@@ -161,7 +170,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.email}</div>
                                             ) : null}
                                         </div>
-
                                         <div className={styles.formGroup}>
                                             <div className={styles.inputWrapper}>
                                                 <FaComment className={styles.inputIcon} />
@@ -180,7 +188,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.message}</div>
                                             ) : null}
                                         </div>
-
                                         <button type="submit" className={styles.submitBtn}>
                                             <FaPaperPlane />
                                             Отправить сообщение
