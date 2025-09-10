@@ -5,6 +5,7 @@ import { FaGithub, FaTelegram, FaSteam, FaSun, FaMoon, FaBars, FaTimes } from 'r
 import AboutUs from '../AboutUs/AboutUs';
 import WorksPage from '../Works/WorksPage';
 import { useTheme } from '../../context/ThemeContext';
+import Footer from "../Footer/Footer";
 
 const MainPage = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -135,11 +136,11 @@ const MainPage = () => {
                                 </span>
                                 <span className={styles.titleLine}>
                                     <span className={styles.titleMask}>
-                                        <span className={styles.highlight}>цифровые</span> решения
+                                        <span className={styles.highlight}>решения </span>ваших
                                     </span>
                                 </span>
                                 <span className={styles.titleLine}>
-                                    <span className={styles.titleMask}>будущего</span>
+                                    <span className={styles.titleMask}>проблем</span>
                                 </span>
                             </h1>
                         </div>
@@ -172,6 +173,7 @@ const MainPage = () => {
                 </div>
             </div>
             <WorksPage isDarkMode={darkMode} />
+            <Footer isDarkMode={darkMode}/>
         </div>
     );
 };

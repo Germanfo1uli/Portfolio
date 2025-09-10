@@ -1,0 +1,306 @@
+.footer {
+    position: relative;
+    padding: 2rem 5%;
+    overflow: hidden;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.footer.dark {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer.light {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footerContent {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logoButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.logoButton:hover {
+    transform: translateY(-2px);
+}
+
+.footerLogo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Стили для тёмной темы */
+.logoDark {
+    background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.dotDark {
+    background: linear-gradient(135deg, #ffffff, #d4d4d4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Стили для светлой темы */
+.logoLight {
+    background: linear-gradient(135deg, #0a0a0a 0%, #3a3a3a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.dotLight {
+    background: linear-gradient(135deg, #0a0a0a, #3a3a3a);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.arrowIcon {
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.logoButton:hover .arrowIcon {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.dark .arrowIcon {
+    color: #d4d4d4;
+}
+
+.light .arrowIcon {
+    color: #3a3a3a;
+}
+
+.logoDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.dark .socialLink {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #d4d4d4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .socialLink:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.light .socialLink {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #3a3a3a;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .socialLink:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    color: #0a0a0a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.copyrightText {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.madeWithText {
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.8;
+    letter-spacing: 0.3px;
+}
+
+.dark .copyrightText {
+    color: #cccccc;
+}
+
+.dark .madeWithText {
+    color: #999999;
+}
+
+.light .copyrightText {
+    color: #666666;
+}
+
+.light .madeWithText {
+    color: #888888;
+}
+
+/* Декоративные элементы */
+.footerOrb1, .footerOrb2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.footerOrb1 {
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+    left: 10%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.dark .footerOrb1 {
+    background: linear-gradient(45deg, #6b6b6b, #d4d4d4);
+}
+
+.light .footerOrb1 {
+    background: linear-gradient(45deg, #d4d4d4, #9e9e9e);
+}
+
+.footerOrb2 {
+    width: 70px;
+    height: 70px;
+    top: -15px;
+    right: 10%;
+    animation: float 10s infinite ease-in-out reverse;
+}
+
+.dark .footerOrb2 {
+    background: linear-gradient(135deg, #3a3a3a, #6b6b6b);
+}
+
+.light .footerOrb2 {
+    background: linear-gradient(135deg, #9e9e9e, #6b6b6b);
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem 5%;
+    }
+
+    .footerContent {
+        gap: 1.2rem;
+    }
+
+    .footerLogo {
+        font-size: 1.3rem;
+    }
+
+    .socialLink {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .copyrightText {
+        font-size: 0.85rem;
+    }
+
+    .madeWithText {
+        font-size: 0.75rem;
+    }
+
+    .footerOrb1, .footerOrb2 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerLogo {
+        font-size: 1.2rem;
+        gap: 0.3rem;
+    }
+
+    .socialLinks {
+        gap: 0.8rem;
+    }
+
+    .socialLink {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+
+    .copyright {
+        gap: 0.2rem;
+    }
+
+    .copyrightText {
+        font-size: 0.8rem;
+    }
+
+    .madeWithText {
+        font-size: 0.7rem;
+    }
+}
