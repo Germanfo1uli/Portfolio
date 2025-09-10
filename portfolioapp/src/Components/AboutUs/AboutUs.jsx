@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './AboutUs.module.css';
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaGithub, FaTimes, FaPaperPlane, FaUser, FaEnvelope, FaComment } from 'react-icons/fa';
+import {SiDotnet, SiPostgresql } from 'react-icons/si';
 
 const AboutUs = ({ isDarkMode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,15 @@ const AboutUs = ({ isDarkMode }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            document.querySelector('main')?.style.setProperty('pointer-events', 'none');
         } else {
             document.body.style.overflow = 'unset';
+            document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
         }
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.querySelector('main')?.style.setProperty('pointer-events', 'auto');
+        };
     }, [isOpen]);
 
     const closeModal = () => {
@@ -25,8 +32,11 @@ const AboutUs = ({ isDarkMode }) => {
     };
 
     const openModal = () => {
-        setIsOpen(true);
-        setIsClosing(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+            setIsOpen(true);
+            setIsClosing(false);
+        }, 300);
     };
 
     const formik = useFormik({
@@ -61,8 +71,6 @@ const AboutUs = ({ isDarkMode }) => {
             >
                 О нас
             </button>
-
-
             {isOpen && (
                 <div className={`${styles.modalOverlay} ${isClosing ? styles.closingOverlay : styles.openingOverlay}`} onClick={closeModal}>
                     <div
@@ -72,7 +80,6 @@ const AboutUs = ({ isDarkMode }) => {
                         <button className={`${styles.closeBtn} ${isDarkMode ? styles.dark : styles.light}`} onClick={closeModal}>
                             <FaTimes />
                         </button>
-
                         <div className={styles.modalContent}>
                             <div className={`${styles.leftPanel} ${isDarkMode ? styles.dark : styles.light} ${isClosing ? styles.slideLeftOut : styles.slideLeftIn}`}>
                                 <div className={styles.panelContent}>
@@ -82,7 +89,6 @@ const AboutUs = ({ isDarkMode }) => {
                                         мы с энтузиазмом изучаем новые технологии и применяем их на практике. Для нас каждый проект — это шаг вперед
                                         в стремлении к качеству и мастерству.
                                     </p>
-
                                     <div className={styles.techStack}>
                                         <h3>Наш стек технологий</h3>
                                         <div className={styles.techIcons}>
@@ -116,6 +122,24 @@ const AboutUs = ({ isDarkMode }) => {
                                                 </div>
                                                 <span>GitHub</span>
                                             </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiDotnet />
+                                                </div>
+                                                <span>C#</span>
+                                            </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiPostgresql />
+                                                </div>
+                                                <span>pgAdmin</span>
+                                            </div>
+                                            <div className={styles.techItem}>
+                                                <div className={styles.iconWrapper}>
+                                                    <SiPostgresql />
+                                                </div>
+                                                <span>SQL</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +166,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.name}</div>
                                             ) : null}
                                         </div>
-
                                         <div className={styles.formGroup}>
                                             <div className={styles.inputWrapper}>
                                                 <FaEnvelope className={styles.inputIcon} />
@@ -161,7 +184,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.email}</div>
                                             ) : null}
                                         </div>
-
                                         <div className={styles.formGroup}>
                                             <div className={styles.inputWrapper}>
                                                 <FaComment className={styles.inputIcon} />
@@ -180,7 +202,6 @@ const AboutUs = ({ isDarkMode }) => {
                                                 <div className={styles.errorMessage}>{formik.errors.message}</div>
                                             ) : null}
                                         </div>
-
                                         <button type="submit" className={styles.submitBtn}>
                                             <FaPaperPlane />
                                             Отправить сообщение

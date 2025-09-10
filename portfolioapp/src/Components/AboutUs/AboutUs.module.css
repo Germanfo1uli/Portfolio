@@ -10,65 +10,56 @@
     overflow: hidden;
     z-index: 1;
 }
-
 .aboutBtn.dark {
     background-color: #f5f5f5;
     color: #0a0a0a;
 }
-
 .aboutBtn.dark:hover {
     background-color: #d4d4d4;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
 }
-
 .aboutBtn.light {
     background-color: #0a0a0a;
     color: #f5f5f5;
 }
-
 .aboutBtn.light:hover {
     background-color: #333333;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-
-
 .modalOverlay {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -7rem;
     right: 0;
     bottom: 0;
+    width: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    pointer-events: auto;
 }
-
 .openingOverlay {
     background-color: rgba(0, 0, 0, 0);
     animation: overlayFadeIn 0.6s ease forwards;
 }
-
 .closingOverlay {
     background-color: rgba(0, 0, 0, 0.8);
     animation: overlayFadeOut 0.6s ease forwards;
 }
-
 @keyframes overlayFadeIn {
     from { background-color: rgba(0, 0, 0, 0); }
     to { background-color: rgba(0, 0, 0, 0.8); }
 }
-
 @keyframes overlayFadeOut {
     from { background-color: rgba(0, 0, 0, 0.8); }
     to { background-color: rgba(0, 0, 0, 0); }
 }
-
 .modalContainer {
-    width: 95%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1400px; /* Increased max-width for wider modal */
     height: 90vh;
     max-height: 800px;
     display: flex;
@@ -76,15 +67,12 @@
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
-
 .modalContainer.opening {
     animation: modalScaleIn 0.6s ease forwards;
 }
-
 .modalContainer.closing {
     animation: modalScaleOut 0.6s ease forwards;
 }
-
 @keyframes modalScaleIn {
     from {
         transform: scale(0.9);
@@ -95,7 +83,6 @@
         opacity: 1;
     }
 }
-
 @keyframes modalScaleOut {
     from {
         transform: scale(1);
@@ -106,7 +93,6 @@
         opacity: 0;
     }
 }
-
 .closeBtn {
     position: absolute;
     top: 1.5rem;
@@ -124,28 +110,21 @@
     transition: all 0.3s ease;
     font-size: 1.5rem;
 }
-
 .closeBtn:hover {
     background: rgba(255, 0, 0, 0.2);
     transform: rotate(90deg) scale(1.1);
 }
-
 .closeBtn.dark {
     color: #f5f5f5;
 }
-
 .closeBtn.light {
     color: #0a0a0a;
 }
-
-
 .modalContent {
     display: flex;
     width: 100%;
     height: 100%;
 }
-
-
 .leftPanel, .rightPanel {
     flex: 1;
     padding: 2.5rem;
@@ -155,31 +134,25 @@
     position: relative;
     overflow-y: auto;
 }
-
 .panelContent {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px; /* Increased max-width for wider panels */
     margin: 0 auto;
 }
-
-
 .leftPanel.dark {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     color: #f5f5f5;
 }
-
 .leftPanel.light {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     color: #f5f5f5;
 }
-
 .leftPanel h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     position: relative;
     font-weight: 700;
 }
-
 .leftPanel h2::after {
     content: '';
     position: absolute;
@@ -190,26 +163,22 @@
     background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
     border-radius: 2px;
 }
-
 .leftPanel p {
     line-height: 1.7;
     margin-bottom: 2rem;
     opacity: 0.9;
     font-size: 1rem;
 }
-
 .techStack h3 {
     margin-bottom: 1.2rem;
     font-size: 1.3rem;
     font-weight: 600;
 }
-
 .techIcons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Adjusted to 3 columns for more icons */
     gap: 1.2rem;
 }
-
 .techItem {
     display: flex;
     align-items: center;
@@ -218,31 +187,25 @@
     border-radius: 10px;
     transition: all 0.3s ease;
 }
-
 .dark .techItem {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .light .techItem {
     background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .techItem:hover {
     transform: translateY(-3px);
 }
-
 .dark .techItem:hover {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
-
 .light .techItem:hover {
     background: rgba(0, 0, 0, 0.15);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
-
 .iconWrapper {
     width: 45px;
     height: 45px;
@@ -252,54 +215,51 @@
     justify-content: center;
     background: rgba(255, 255, 255, 0.1);
 }
-
 .techItem svg {
     font-size: 1.5rem;
 }
-
 .techItem:nth-child(1) svg {
     color: #61dafb; /* React blue */
 }
-
 .techItem:nth-child(2) svg {
     color: #e34f26; /* HTML5 orange */
 }
-
 .techItem:nth-child(3) svg {
     color: #1572b6; /* CSS3 blue */
 }
-
 .techItem:nth-child(4) svg {
     color: #f7df1e; /* JavaScript yellow */
 }
-
 .techItem:nth-child(5) svg {
     color: #f5f5f5; /* GitHub white */
 }
-
+.techItem:nth-child(6) svg {
+    color: #68217a; /* C# purple */
+}
+.techItem:nth-child(7) svg {
+    color: #336791; /* pgAdmin (using PostgreSQL blue) */
+}
+.techItem:nth-child(8) svg {
+    color: #336791; /* SQL (using PostgreSQL blue) */
+}
 .techItem span {
     font-weight: 500;
     font-size: 1rem;
 }
-
-
 .rightPanel.dark {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     color: #f5f5f5;
 }
-
 .rightPanel.light {
     background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
     color: #0a0a0a;
 }
-
 .rightPanel h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     position: relative;
     font-weight: 700;
 }
-
 .rightPanel h2::after {
     content: '';
     position: absolute;
@@ -310,40 +270,33 @@
     background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
     border-radius: 2px;
 }
-
 .contactForm {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-
 .formGroup {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
-
 .inputWrapper {
     position: relative;
     display: flex;
     align-items: center;
 }
-
 .inputIcon {
     position: absolute;
     left: 1rem;
     font-size: 1.1rem;
     z-index: 1;
 }
-
 .dark .inputIcon {
     color: #cccccc;
 }
-
 .light .inputIcon {
     color: #666666;
 }
-
 .formGroup input,
 .formGroup textarea {
     padding: 0.9rem 1rem 0.9rem 2.8rem;
@@ -354,44 +307,37 @@
     width: 100%;
     font-family: inherit;
 }
-
 .dark .formGroup input,
 .dark .formGroup textarea {
     background-color: rgba(255, 255, 255, 0.08);
     color: #f5f5f5;
 }
-
 .dark .formGroup input:focus,
 .dark .formGroup textarea:focus {
     outline: none;
     background-color: rgba(255, 255, 255, 0.12);
     box-shadow: 0 0 0 3px rgba(107, 107, 107, 0.5);
 }
-
 .light .formGroup input,
 .light .formGroup textarea {
     background-color: rgba(0, 0, 0, 0.06);
     color: #0a0a0a;
 }
-
 .light .formGroup input:focus,
 .light .formGroup textarea:focus {
     outline: none;
     background-color: rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 0 3px rgba(107, 107, 107, 0.3);
 }
-
 .formGroup input.error,
 .formGroup textarea.error {
     box-shadow: 0 0 0 3px #ff4757;
 }
-
 .errorMessage {
     color: #ff4757;
     font-size: 0.85rem;
     padding-left: 0.5rem;
 }
-
 .submitBtn {
     padding: 1rem 1.8rem;
     background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
@@ -408,29 +354,22 @@
     transition: all 0.3s ease;
     margin-top: 0.5rem;
 }
-
 .submitBtn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(107, 107, 107, 0.4);
 }
-
-
 .slideLeftIn {
     animation: slideLeftIn 0.6s ease forwards;
 }
-
 .slideRightIn {
     animation: slideRightIn 0.6s ease forwards;
 }
-
 .slideLeftOut {
     animation: slideLeftOut 0.6s ease forwards;
 }
-
 .slideRightOut {
     animation: slideRightOut 0.6s ease forwards;
 }
-
 @keyframes slideLeftIn {
     from {
         transform: translateX(-100%);
@@ -441,7 +380,6 @@
         opacity: 1;
     }
 }
-
 @keyframes slideRightIn {
     from {
         transform: translateX(100%);
@@ -452,7 +390,6 @@
         opacity: 1;
     }
 }
-
 @keyframes slideLeftOut {
     from {
         transform: translateX(0);
@@ -463,7 +400,6 @@
         opacity: 0;
     }
 }
-
 @keyframes slideRightOut {
     from {
         transform: translateX(0);
@@ -474,15 +410,15 @@
         opacity: 0;
     }
 }
-
-
 @media (max-width: 1200px) {
     .modalContainer {
         max-width: 1100px;
         height: 85vh;
     }
+    .panelContent {
+        max-width: 600px; /* Adjusted for smaller screens */
+    }
 }
-
 @media (max-width: 1024px) {
     .modalContainer {
         flex-direction: column;
@@ -491,40 +427,31 @@
         width: 95%;
         overflow-y: auto;
     }
-
     .modalContent {
         flex-direction: column;
     }
-
     .leftPanel, .rightPanel {
         padding: 2rem;
         min-height: auto;
     }
-
     .panelContent {
-        max-width: 100%;
+        max-width: 100%; /* Full width for smaller screens */
     }
-
     .techIcons {
         grid-template-columns: repeat(3, 1fr);
     }
-
     .slideLeftIn {
         animation: slideTopIn 0.6s ease forwards;
     }
-
     .slideRightIn {
         animation: slideBottomIn 0.6s ease forwards;
     }
-
     .slideLeftOut {
         animation: slideTopOut 0.6s ease forwards;
     }
-
     .slideRightOut {
         animation: slideBottomOut 0.6s ease forwards;
     }
-
     @keyframes slideTopIn {
         from {
             transform: translateY(-100%);
@@ -535,7 +462,6 @@
             opacity: 1;
         }
     }
-
     @keyframes slideBottomIn {
         from {
             transform: translateY(100%);
@@ -546,7 +472,6 @@
             opacity: 1;
         }
     }
-
     @keyframes slideTopOut {
         from {
             transform: translateY(0);
@@ -557,7 +482,6 @@
             opacity: 0;
         }
     }
-
     @keyframes slideBottomOut {
         from {
             transform: translateY(0);
@@ -569,61 +493,42 @@
         }
     }
 }
-
 @media (max-width: 768px) {
     .modalContainer {
         width: 98%;
         height: 95vh;
     }
-
     .leftPanel, .rightPanel {
         padding: 1.5rem;
     }
-
     .leftPanel h2, .rightPanel h2 {
         font-size: 1.8rem;
     }
-
     .techIcons {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .closeBtn {
-        top: 1rem;
-        right: 1rem;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        grid-template-columns: repeat(2, 1fr); /* Adjusted to 2 columns for smaller screens */
     }
 }
-
 @media (max-width: 480px) {
     .techIcons {
         grid-template-columns: 1fr;
     }
-
     .leftPanel h2, .rightPanel h2 {
         font-size: 1.6rem;
     }
-
     .techItem {
         padding: 0.7rem;
     }
-
     .iconWrapper {
         width: 40px;
         height: 40px;
     }
-
     .techItem svg {
         font-size: 1.3rem;
     }
-
     .submitBtn {
         padding: 0.9rem 1.5rem;
         font-size: 0.9rem;
     }
-
     .formGroup input,
     .formGroup textarea {
         padding: 0.8rem 0.8rem 0.8rem 2.5rem;
