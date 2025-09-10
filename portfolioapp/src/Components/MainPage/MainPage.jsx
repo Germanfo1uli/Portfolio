@@ -143,7 +143,7 @@ const MainPage = () => {
                                 </span>
                             </h1>
                         </div>
-                        <p className={styles.subtitle}>
+                        <p className={`${styles.subtitle} ${isVisible ? styles.fadeInUp : ''}`}>
                             Команда экспертов, специализирующихся на инновационных веб-технологиях,
                             дизайне и разработке программного обеспечения.
                         </p>
