@@ -59,7 +59,7 @@
 }
 .modalContainer {
     width: 100%;
-    max-width: 1400px; /* Increased max-width for wider modal */
+    max-width: 1400px;
     height: 90vh;
     max-height: 800px;
     display: flex;
@@ -136,7 +136,7 @@
 }
 .panelContent {
     width: 100%;
-    max-width: 700px; /* Increased max-width for wider panels */
+    max-width: 700px;
     margin: 0 auto;
 }
 .leftPanel.dark {
@@ -176,8 +176,8 @@
 }
 .techIcons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjusted to 3 columns for more icons */
-    gap: 1.2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
 }
 .techItem {
     display: flex;
@@ -219,28 +219,28 @@
     font-size: 1.5rem;
 }
 .techItem:nth-child(1) svg {
-    color: #61dafb; /* React blue */
+    color: #61dafb;
 }
 .techItem:nth-child(2) svg {
-    color: #e34f26; /* HTML5 orange */
+    color: #e34f26;
 }
 .techItem:nth-child(3) svg {
-    color: #1572b6; /* CSS3 blue */
+    color: #1572b6;
 }
 .techItem:nth-child(4) svg {
-    color: #f7df1e; /* JavaScript yellow */
+    color: #f7df1e;
 }
 .techItem:nth-child(5) svg {
-    color: #f5f5f5; /* GitHub white */
+    color: #f5f5f5;
 }
 .techItem:nth-child(6) svg {
-    color: #68217a; /* C# purple */
+    color: #68217a;
 }
 .techItem:nth-child(7) svg {
-    color: #336791; /* pgAdmin (using PostgreSQL blue) */
+    color: #336791;
 }
 .techItem:nth-child(8) svg {
-    color: #336791; /* SQL (using PostgreSQL blue) */
+    color: #336791;
 }
 .techItem span {
     font-weight: 500;
@@ -340,8 +340,6 @@
 }
 .submitBtn {
     padding: 1rem 1.8rem;
-    background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
-    color: #0a0a0a;
     border: none;
     border-radius: 10px;
     font-weight: 600;
@@ -354,9 +352,27 @@
     transition: all 0.3s ease;
     margin-top: 0.5rem;
 }
-.submitBtn:hover {
+
+/* Исправленная кнопка для светлой темы */
+.dark .submitBtn {
+    background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
+    color: #0a0a0a;
+}
+
+.dark .submitBtn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(107, 107, 107, 0.4);
+}
+
+/* Для светлой темы */
+.light .submitBtn {
+    background: linear-gradient(90deg, #0a0a0a, #333333);
+    color: #f5f5f5;
+}
+
+.light .submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 .slideLeftIn {
     animation: slideLeftIn 0.6s ease forwards;
@@ -416,7 +432,7 @@
         height: 85vh;
     }
     .panelContent {
-        max-width: 600px; /* Adjusted for smaller screens */
+        max-width: 600px;
     }
 }
 @media (max-width: 1024px) {
@@ -435,7 +451,7 @@
         min-height: auto;
     }
     .panelContent {
-        max-width: 100%; /* Full width for smaller screens */
+        max-width: 100%;
     }
     .techIcons {
         grid-template-columns: repeat(3, 1fr);
@@ -505,7 +521,7 @@
         font-size: 1.8rem;
     }
     .techIcons {
-        grid-template-columns: repeat(2, 1fr); /* Adjusted to 2 columns for smaller screens */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (max-width: 480px) {

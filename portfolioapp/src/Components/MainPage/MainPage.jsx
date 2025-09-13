@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './MainPage.module.css';
-import { FaGithub, FaTelegram, FaSteam, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import AboutUs from '../AboutUs/AboutUs';
 import WorksPage from '../Works/WorksPage';
 import { useTheme } from '../../context/ThemeContext';
@@ -9,36 +9,29 @@ import Footer from "../Footer/Footer";
 import RecomViewPage from "../RecomViewPage/RecomViewPage";
 
 const MainPage = () => {
-    const { darkMode, toggleTheme } = useTheme();
+    const { darkMode, toggleTheme} = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const canvasRef = useRef(null);
+    const particlesRef = useRef([]);
+    const animationFrameRef = useRef(null);
     const location = useLocation();
 
-    useEffect(() => {
-        setIsVisible(true);
-        initParticles();
-        return () => {
-            if (canvasRef.current) {
-                cancelAnimationFrame(canvasRef.current.animationFrame);
-            }
-        };
-    }, []);
-
-    const toggleMobileMenu = () => {
-        setMobileMenuOpen(!mobileMenuOpen);
-    };
-
-    const initParticles = () => {
+    const initParticles = useCallback(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
+        if (animationFrameRef.current) {
+            cancelAnimationFrame(animationFrameRef.current);
+        }
         const ctx = canvas.getContext('2d');
-        const particles = [];
         const particleCount = 100;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+
+        particlesRef.current = [];
         for (let i = 0; i < particleCount; i++) {
-            particles.push({
+            particlesRef.current.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 radius: Math.random() * 2 + 1,
@@ -47,42 +40,75 @@ const MainPage = () => {
                 color: darkMode ? `rgba(200, 200, 200, ${Math.random() * 0.5})` : `rgba(50, 50, 50, ${Math.random() * 0.5})`
             });
         }
+
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
+
+
+            particlesRef.current.forEach(particle => {
                 particle.x += particle.speedX;
                 particle.y += particle.speedY;
                 if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
                 if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
                 ctx.fill();
             });
+
             ctx.strokeStyle = darkMode ? 'rgba(150, 150, 150, 0.1)' : 'rgba(50, 50, 50, 0.1)';
             ctx.lineWidth = 0.5;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
+
+            for (let i = 0; i < particlesRef.current.length; i++) {
+                for (let j = i + 1; j < particlesRef.current.length; j++) {
+                    const dx = particlesRef.current[i].x - particlesRef.current[j].x;
+                    const dy = particlesRef.current[i].y - particlesRef.current[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < 100) {
                         ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.moveTo(particlesRef.current[i].x, particlesRef.current[i].y);
+                        ctx.lineTo(particlesRef.current[j].x, particlesRef.current[j].y);
                         ctx.stroke();
                     }
                 }
             }
-            canvas.animationFrame = requestAnimationFrame(animate);
+
+            animationFrameRef.current = requestAnimationFrame(animate);
         };
+
         animate();
+    }, [darkMode]);
+
+    useEffect(() => {
+        setIsVisible(true);
+        initParticles();
+
         const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            if (canvasRef.current) {
+                canvasRef.current.width = window.innerWidth;
+                canvasRef.current.height = window.innerHeight;
+                initParticles();
+            }
         };
+
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+
+        return () => {
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [initParticles]);
+
+
+    useEffect(() => {
+        initParticles();
+    }, [darkMode, initParticles]);
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
     };
 
     return (

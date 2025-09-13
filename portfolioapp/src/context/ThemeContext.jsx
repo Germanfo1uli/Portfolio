@@ -15,10 +15,15 @@ export const ThemeProvider = ({ children }) => {
         const savedTheme = localStorage.getItem('theme');
         return savedTheme ? savedTheme === 'dark' : true;
     });
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('theme', darkMode ? 'dark' : 'light');
 
+        setIsTransitioning(true);
+        const timer = setTimeout(() => {
+            setIsTransitioning(false);
+        }, 800); // Match animation duration in CSS
 
         if (darkMode) {
             document.body.classList.add('dark-theme');
@@ -27,6 +32,8 @@ export const ThemeProvider = ({ children }) => {
             document.body.classList.add('light-theme');
             document.body.classList.remove('dark-theme');
         }
+
+        return () => clearTimeout(timer);
     }, [darkMode]);
 
     const toggleTheme = () => {
@@ -42,6 +49,9 @@ export const ThemeProvider = ({ children }) => {
     return (
         <ThemeContext.Provider value={value}>
             {children}
+            {isTransitioning && (
+                <div className={`theme-transition-overlay ${darkMode ? 'dark-to-light' : 'light-to-dark'}`} />
+            )}
         </ThemeContext.Provider>
     );
 };
