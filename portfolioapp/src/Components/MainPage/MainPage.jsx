@@ -6,6 +6,7 @@ import AboutUs from '../AboutUs/AboutUs';
 import WorksPage from '../Works/WorksPage';
 import { useTheme } from '../../context/ThemeContext';
 import Footer from "../Footer/Footer";
+import RecomViewPage from "../RecomViewPage/RecomViewPage";
 
 const MainPage = () => {
     const { darkMode, toggleTheme } = useTheme();
@@ -150,20 +151,6 @@ const MainPage = () => {
                         </p>
                         <div className={styles.buttons}>
                             <AboutUs isDarkMode={darkMode} />
-                            <div className={styles.socials}>
-                                <a href="#" className={styles.socialLink} aria-label="GitHub">
-                                    <FaGithub />
-                                    <span className={styles.tooltip}>GitHub</span>
-                                </a>
-                                <a href="#" className={styles.socialLink} aria-label="Telegram">
-                                    <FaTelegram />
-                                    <span className={styles.tooltip}>Telegram</span>
-                                </a>
-                                <a href="#" className={styles.socialLink} aria-label="Steam">
-                                    <FaSteam />
-                                    <span className={styles.tooltip}>Steam</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </main>
@@ -173,6 +160,7 @@ const MainPage = () => {
                 </div>
             </div>
             <WorksPage isDarkMode={darkMode} />
+            <RecomViewPage isDarkMode={darkMode} />
             <Footer isDarkMode={darkMode}/>
         </div>
     );
