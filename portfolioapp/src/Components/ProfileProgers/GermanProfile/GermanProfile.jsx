@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './GermanProfile.module.css';
+import styles from '../ProfileComponents.module.css';
 import { FaGithub, FaTelegram, FaSteam, FaReact, FaHtml5, FaCss3Alt, FaJs, FaGitAlt,
     FaFigma, FaNpm, FaSass, FaBootstrap, FaNodeJs, FaRocket, FaCode, FaMobile, FaTools,
     FaLayerGroup, FaPalette, FaLightbulb, FaClock, FaHeart, FaStar } from 'react-icons/fa';
@@ -190,17 +190,7 @@ const GermanProfile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <FaFigma />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Figma</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
                                         <FaNpm />
@@ -229,28 +219,7 @@ const GermanProfile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <SiJest />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Jest</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '78%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <FaSass />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>SASS</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '87%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
                                         <FaBootstrap />
