@@ -5,6 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
 import styles from '../MainPage/MainPage.module.css';
 import ProfileNavigation from "./ProfileNavigation";
 import Footer from "../MoreComponents/Footer/Footer";
+import EvgenyProfile from "./EvgenyProfile/EvgenyProfile";
 
 const ProfileProgers = () => {
     const { darkMode } = useTheme();
@@ -15,6 +16,7 @@ const ProfileProgers = () => {
             <div className={styles.contentWrapper}>
                 <GermanProfile/>
                 <NikitaProfile/>
+                <EvgenyProfile/>
                 <Footer/>
             </div>
         </div>
