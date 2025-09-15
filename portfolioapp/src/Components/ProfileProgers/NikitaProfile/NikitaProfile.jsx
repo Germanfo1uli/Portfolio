@@ -31,7 +31,7 @@ const NikitaProfile = () => {
                         <h1 className={styles.profileName}>Никита</h1>
 
                     </div>
-                    <p className={styles.profileRole}>Full Stack JavaScript Developer</p>
+                    <p className={styles.profileRole}>Просто тварь</p>
                     <div className={styles.socialLinks}>
                         <a
                             href="https://github.com"

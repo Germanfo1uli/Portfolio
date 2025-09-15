@@ -4,6 +4,7 @@ import NikitaProfile from "./NikitaProfile/NikitaProfile";
 import { useTheme } from '../../context/ThemeContext';
 import styles from '../MainPage/MainPage.module.css';
 import ProfileNavigation from "./ProfileNavigation";
+import Footer from "../MoreComponents/Footer/Footer";
 
 const ProfileProgers = () => {
     const { darkMode } = useTheme();
@@ -14,6 +15,7 @@ const ProfileProgers = () => {
             <div className={styles.contentWrapper}>
                 <GermanProfile/>
                 <NikitaProfile/>
+                <Footer/>
             </div>
         </div>
     );
