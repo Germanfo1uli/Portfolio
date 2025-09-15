@@ -20,18 +20,18 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem('theme', darkMode ? 'dark' : 'light');
 
+        if (darkMode) {
+            document.body.classList.add('dark');
+            document.body.classList.remove('light');
+        } else {
+            document.body.classList.add('light');
+            document.body.classList.remove('dark');
+        }
+
         setIsTransitioning(true);
         const timer = setTimeout(() => {
             setIsTransitioning(false);
-        }, 800); // Match animation duration in CSS
-
-        if (darkMode) {
-            document.body.classList.add('dark-theme');
-            document.body.classList.remove('light-theme');
-        } else {
-            document.body.classList.add('light-theme');
-            document.body.classList.remove('dark-theme');
-        }
+        }, 800);
 
         return () => clearTimeout(timer);
     }, [darkMode]);

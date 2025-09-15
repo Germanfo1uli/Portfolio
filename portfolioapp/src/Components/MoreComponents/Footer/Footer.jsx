@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaTelegram, FaSteam, FaArrowUp } from 'react-icons/fa';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../../context/ThemeContext';
 import styles from './Footer.module.css';
 
 const Footer = () => {

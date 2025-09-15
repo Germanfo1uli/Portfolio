@@ -5,8 +5,9 @@ import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import AboutUs from '../AboutUs/AboutUs';
 import WorksPage from '../Works/WorksPage';
 import { useTheme } from '../../context/ThemeContext';
-import Footer from "../Footer/Footer";
+import Footer from "../MoreComponents/Footer/Footer";
 import RecomViewPage from "../RecomViewPage/RecomViewPage";
+import Navbar from "../MoreComponents/NavBar/NavBar";
 
 const MainPage = () => {
     const { darkMode, toggleTheme} = useTheme();
@@ -122,37 +123,7 @@ const MainPage = () => {
                 <div className={styles.orb2}></div>
                 <div className={styles.orb3}></div>
             </div>
-            <nav className={`${styles.navbar} ${isVisible ? styles.fadeIn : ''}`}>
-                <div className={styles.logo}>
-                    <span>WebCatDev</span>
-                    <div className={styles.logoDot}></div>
-                </div>
-                <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.navOpen : ''}`}>
-                    <Link to="#experiments" onClick={() => setMobileMenuOpen(false)}>
-                        Эксперименты
-                    </Link>
-                    <Link to="/contacts" onClick={() => setMobileMenuOpen(false)}>
-                        Контакты
-                    </Link>
-                    <Link to="#cases" onClick={() => setMobileMenuOpen(false)}>
-                        Кейсы
-                    </Link>
-                    <button
-                        className={styles.themeToggle}
-                        onClick={toggleTheme}
-                        aria-label="Сменить тему"
-                    >
-                        {darkMode ? <FaSun /> : <FaMoon />}
-                    </button>
-                </div>
-                <button
-                    className={styles.mobileMenuBtn}
-                    onClick={toggleMobileMenu}
-                    aria-label="Меню"
-                >
-                    {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-                </button>
-            </nav>
+            <Navbar/>
             <div className={styles.contentWrapper}>
                 <main className={styles.mainContent}>
                     <div className={`${styles.hero} ${isVisible ? styles.slideUp : ''}`}>
