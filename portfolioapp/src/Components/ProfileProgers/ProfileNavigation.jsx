@@ -29,7 +29,6 @@ const ProfileNavigation = () => {
                     className={styles.homeLink}
                     onClick={() => setMobileMenuOpen(false)}
                 >
-                    <FaHome />
                     <span>Вернуться на главную</span>
                 </Link>
                 <button
