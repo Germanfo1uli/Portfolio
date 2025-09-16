@@ -1,0 +1,171 @@
+.profileNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-20px);
+    background-color: #f8f9fa;
+    color: #121212; 
+}
+
+.profileNavFadeIn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profileNavLogo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profileNavLogo span {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.5s ease;
+    color: inherit;
+}
+
+.profileNavLogoDot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #6b6b6b, #d4d4d4);
+    border-radius: 50%;
+    margin-left: 5px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.profileNavLinks {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profileNavHomeLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    border-radius: 8px;
+    color: inherit; 
+}
+
+.profileNavHomeLink::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0; 
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
+    transition: width 0.3s ease;
+}
+
+.profileNavHomeLink:hover::after {
+    width: 100%; 
+}
+
+.profileNavThemeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.5s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(128, 128, 128, 0.1);
+    color: inherit; 
+}
+
+.profileNavThemeToggle:hover {
+    transform: rotate(15deg);
+    background: rgba(128, 128, 128, 0.2);
+}
+
+.profileNavMobileMenuBtn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.5s ease;
+    color: inherit; 
+}
+
+.profileNavOpen {
+    right: 0;
+}
+
+.profileNavDark {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+}
+
+.profileNavLight {
+    background-color: #f8f9fa !important;
+    color: #0a0a0a !important;
+}
+
+@media (max-width: 768px) {
+    .profileNavLinks {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        transition: right 0.3s ease;
+        gap: 2rem;
+        color: #f5f5f5; 
+    }
+
+    .profileNavLight .profileNavLinks {
+        background: rgba(245, 245, 245, 0.95);
+        color: #0a0a0a; 
+    }
+
+    .profileNavMobileMenuBtn {
+        display: block;
+    }
+
+    .profileNavHomeLink {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+
+    .profileNavHomeLink span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .profileNav {
+        padding: 2rem 5%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}

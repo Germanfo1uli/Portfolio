@@ -102,26 +102,61 @@
 }
 
 .slider {
-    width: 100%;
+    width: 600px;
     max-width: 600px;
     overflow: hidden;
     position: relative;
+    height: 300px;
+    min-height: 300px;
 }
 
 .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 20px;
+    overflow: hidden;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-.slide.right {
+.slideActive {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Анимация входа справа */
+.slide-enter-right {
+    transform: translateX(100%);
+    opacity: 0;
     animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.slide.left {
+/* Анимация входа слева */
+.slide-enter-left {
+    transform: translateX(-100%);
+    opacity: 0;
     animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Анимация выхода вправо */
+.slide-exit-right {
+    transform: translateX(0);
+    opacity: 1;
+    animation: slideOutRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Анимация выхода влево */
+.slide-exit-left {
+    transform: translateX(0);
+    opacity: 1;
+    animation: slideOutLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .profileCard {
@@ -132,33 +167,17 @@
     border-radius: 20px;
     width: 100%;
     transition: all 0.5s ease;
-    animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
+    transform: translateZ(0);
 }
 
 .sliderContainer.dark .profileCard {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .sliderContainer.light .profileCard {
     background: rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.profileCard:hover {
-    transform: translateY(-8px);
-}
-
-.sliderContainer.dark .profileCard:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
-
-.sliderContainer.light .profileCard:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
 .profileImage {
@@ -181,11 +200,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.profileCard:hover .profileImage img {
-    transform: scale(1.1);
 }
 
 .profileInfo {
@@ -261,10 +275,6 @@
     color: #0a0a0a;
 }
 
-.skillTag:hover {
-    transform: translateY(-3px);
-}
-
 .dotsContainer {
     display: flex;
     justify-content: center;
@@ -310,33 +320,44 @@
 @keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateX(80px) scale(0.95);
+        transform: translateX(100%);
     }
     to {
         opacity: 1;
-        transform: translateX(0) scale(1);
+        transform: translateX(0);
     }
 }
 
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-80px) scale(0.95);
+        transform: translateX(-100%);
     }
     to {
         opacity: 1;
-        transform: translateX(0) scale(1);
+        transform: translateX(0);
     }
 }
 
-@keyframes fadeInUp {
+@keyframes slideOutRight {
     from {
-        opacity: 0;
-        transform: translateY(40px);
+        opacity: 1;
+        transform: translateX(0);
     }
     to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
     }
 }
 

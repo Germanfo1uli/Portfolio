@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../MainPage/MainPage.module.css';
-import { FaSun, FaMoon, FaBars, FaTimes, FaHome } from 'react-icons/fa';
+import styles from './ProfileNavigation.module.css';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 
 const ProfileNavigation = () => {
@@ -18,21 +18,21 @@ const ProfileNavigation = () => {
     };
 
     return (
-        <nav className={`${styles.navbar} ${isVisible ? styles.fadeIn : ''} ${darkMode ? styles.dark : styles.light}`}>
-            <div className={styles.logo}>
+        <nav className={`${styles.profileNav} ${isVisible ? styles.profileNavFadeIn : ''} ${darkMode ? styles.profileNavDark : styles.profileNavLight}`}>
+            <div className={styles.profileNavLogo}>
                 <span>WebCatDev</span>
-                <div className={styles.logoDot}></div>
+                <div className={styles.profileNavLogoDot}></div>
             </div>
-            <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.navOpen : ''}`}>
+            <div className={`${styles.profileNavLinks} ${mobileMenuOpen ? styles.profileNavOpen : ''}`}>
                 <Link
                     to="/"
-                    className={styles.homeLink}
+                    className={styles.profileNavHomeLink}
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     <span>Вернуться на главную</span>
                 </Link>
                 <button
-                    className={styles.themeToggle}
+                    className={styles.profileNavThemeToggle}
                     onClick={toggleTheme}
                     aria-label="Сменить тему"
                 >
@@ -40,7 +40,7 @@ const ProfileNavigation = () => {
                 </button>
             </div>
             <button
-                className={styles.mobileMenuBtn}
+                className={styles.profileNavMobileMenuBtn}
                 onClick={toggleMobileMenu}
                 aria-label="Меню"
             >
