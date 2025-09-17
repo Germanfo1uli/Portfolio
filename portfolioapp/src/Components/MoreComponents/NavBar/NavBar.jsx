@@ -24,9 +24,6 @@ const Navigation = () => {
                 <div className={styles.logoDot}></div>
             </div>
             <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.navOpen : ''}`}>
-                <Link to="#experiments" onClick={() => setMobileMenuOpen(false)}>
-                    Эксперименты
-                </Link>
                 <Link to="/contacts" onClick={() => setMobileMenuOpen(false)}>
                     Контакты
                 </Link>
