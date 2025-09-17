@@ -30,7 +30,7 @@ const EvgenyProfile = () => {
                     </div>
 
 
-                    <p className={styles.profileRole}>C# Backend Specialist</p>
+                    <p className={styles.profileRole}>C# Backend Developer</p>
                     <div className={styles.socialLinks}>
                         <a
                             href="https://github.com"
@@ -74,11 +74,10 @@ const EvgenyProfile = () => {
                     </div>
                     <div className={styles.aboutContent}>
                         <p className={styles.aboutText}>
-                            Full Stack разработчик с глубокой специализацией в C# и .NET экосистеме.
+                            Backend-разработчик с глубокой специализацией в .NET экосистеме.
                             Создаю высокопроизводительные бэкенд-решения с использованием современных технологий Microsoft.
                             Обладаю опытом разработки полного цикла - от проектирования архитектуры баз данных
-                            до создания отзывчивых фронтенд-интерфейсов. Страстно увлечен созданием масштабируемых
-                            и надежных веб-приложений.
+                            до создания готового веб-приложения. Также владею базовыми знаниями Dev-ops.
                         </p>
                     </div>
                 </section>
@@ -91,7 +90,6 @@ const EvgenyProfile = () => {
                         <h2 className={styles.sectionTitle}>Технические навыки</h2>
                     </div>
                     <div className={styles.skillsGrid}>
-
                         <div className={styles.skillCategory}>
                             <h3 className={styles.skillCategoryTitle}>Бэкенд</h3>
                             <div className={styles.skillsList}>
@@ -111,7 +109,7 @@ const EvgenyProfile = () => {
                                         <FaServer />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>REST API</span>
+                                        <span className={styles.skillName}>Entity Framework</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
                                         </div>
@@ -122,7 +120,7 @@ const EvgenyProfile = () => {
                                         <SiDocker />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Docker</span>
+                                        <span className={styles.skillName}>Unit Test</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
                                         </div>
@@ -132,14 +130,14 @@ const EvgenyProfile = () => {
                         </div>
 
                         <div className={styles.skillCategory}>
-                            <h3 className={styles.skillCategoryTitle}>Фронтенд</h3>
+                            <h3 className={styles.skillCategoryTitle}>Работа с бэком</h3>
                             <div className={styles.skillsList}>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
                                         <FaHtml5 />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>HTML5</span>
+                                        <span className={styles.skillName}>PostgreSQL</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
                                         </div>
@@ -150,7 +148,7 @@ const EvgenyProfile = () => {
                                         <FaCss3Alt />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>CSS3</span>
+                                        <span className={styles.skillName}>Swagger</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
                                         </div>
@@ -161,9 +159,9 @@ const EvgenyProfile = () => {
                                         <FaJs />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>JavaScript</span>
+                                        <span className={styles.skillName}>REST API</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '88%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,9 +170,9 @@ const EvgenyProfile = () => {
                                         <FaReact />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>React</span>
+                                        <span className={styles.skillName}>не React</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '0%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -183,9 +181,9 @@ const EvgenyProfile = () => {
                                         <SiTypescript />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>TypeScript</span>
+                                        <span className={styles.skillName}>не ts :(</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '82%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '0%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -193,14 +191,14 @@ const EvgenyProfile = () => {
                         </div>
 
                         <div className={styles.skillCategory}>
-                            <h3 className={styles.skillCategoryTitle}>Инструменты</h3>
+                            <h3 className={styles.skillCategoryTitle}>Доп. инструменты</h3>
                             <div className={styles.skillsList}>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <FaGitAlt />
+                                        <FaWindows />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Git</span>
+                                        <span className={styles.skillName}>Visual Studio</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
                                         </div>
@@ -208,10 +206,10 @@ const EvgenyProfile = () => {
                                 </div>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <FaWindows />
+                                        <FaGitAlt />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Visual Studio</span>
+                                        <span className={styles.skillName}>Git</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '92%'}}></div>
                                         </div>
@@ -222,7 +220,7 @@ const EvgenyProfile = () => {
                                         <SiWebpack />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Webpack</span>
+                                        <span className={styles.skillName}>Docker</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '78%'}}></div>
                                         </div>
@@ -233,9 +231,9 @@ const EvgenyProfile = () => {
                                         <FaNpm />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>NPM</span>
+                                        <span className={styles.skillName}>не NPM :(</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '0%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -244,9 +242,9 @@ const EvgenyProfile = () => {
                                         <SiPostgresql />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>PostgreSQL</span>
+                                        <span className={styles.skillName}>;(</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '0%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -299,14 +297,14 @@ const EvgenyProfile = () => {
                             <div className={styles.statIcon}>
                                 <FaClock />
                             </div>
-                            <div className={styles.statNumber}>15+</div>
+                            <div className={styles.statNumber}>много</div>
                             <div className={styles.statLabel}>Завершенных проектов</div>
                         </div>
                         <div className={styles.statItem}>
                             <div className={styles.statIcon}>
                                 <FaHeart />
                             </div>
-                            <div className={styles.statNumber}>3+</div>
+                            <div className={styles.statNumber}>0+</div>
                             <div className={styles.statLabel}>Года опыта</div>
                         </div>
                         <div className={styles.statItem}>
