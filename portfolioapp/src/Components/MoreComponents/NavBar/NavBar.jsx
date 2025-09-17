@@ -27,9 +27,18 @@ const Navigation = () => {
                 <Link to="/contacts" onClick={() => setMobileMenuOpen(false)}>
                     Контакты
                 </Link>
-                <Link to="#cases" onClick={() => setMobileMenuOpen(false)}>
+                <a
+                    href="#cases"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setMobileMenuOpen(false);
+                        if (window.scrollToWorks) {
+                            window.scrollToWorks();
+                        }
+                    }}
+                >
                     Кейсы
-                </Link>
+                </a>
                 <button
                     className={styles.themeToggle}
                     onClick={toggleTheme}

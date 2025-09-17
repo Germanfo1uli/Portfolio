@@ -83,9 +83,6 @@ const WorksPage = ({ isDarkMode }) => {
                                 </div>
 
                                 <div className={styles.cardActions}>
-                                    <a href={work.liveUrl} className={styles.actionBtn} target="_blank" rel="noopener noreferrer">
-                                        <FaExternalLinkAlt /> Демо
-                                    </a>
                                     <a href={work.githubUrl} className={styles.actionBtn} target="_blank" rel="noopener noreferrer">
                                         <FaGithub /> Код
                                     </a>
