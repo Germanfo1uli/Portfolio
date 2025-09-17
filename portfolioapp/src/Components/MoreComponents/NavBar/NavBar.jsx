@@ -24,15 +24,21 @@ const Navigation = () => {
                 <div className={styles.logoDot}></div>
             </div>
             <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.navOpen : ''}`}>
-                <Link to="#experiments" onClick={() => setMobileMenuOpen(false)}>
-                    Эксперименты
-                </Link>
                 <Link to="/contacts" onClick={() => setMobileMenuOpen(false)}>
                     Контакты
                 </Link>
-                <Link to="#cases" onClick={() => setMobileMenuOpen(false)}>
+                <a
+                    href="#cases"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setMobileMenuOpen(false);
+                        if (window.scrollToWorks) {
+                            window.scrollToWorks();
+                        }
+                    }}
+                >
                     Кейсы
-                </Link>
+                </a>
                 <button
                     className={styles.themeToggle}
                     onClick={toggleTheme}

@@ -17,6 +17,7 @@ const MainPage = () => {
     const particlesRef = useRef([]);
     const animationFrameRef = useRef(null);
     const location = useLocation();
+    const worksPageRef = useRef(null);
 
     const initParticles = useCallback(() => {
         const canvas = canvasRef.current;
@@ -108,6 +109,19 @@ const MainPage = () => {
         initParticles();
     }, [darkMode, initParticles]);
 
+
+    useEffect(() => {
+        window.scrollToWorks = () => {
+            if (worksPageRef.current) {
+                worksPageRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        return () => {
+            delete window.scrollToWorks;
+        };
+    }, []);
+
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
@@ -156,7 +170,9 @@ const MainPage = () => {
                     <span>Scroll</span>
                 </div>
             </div>
-            <WorksPage isDarkMode={darkMode} />
+            <div id="cases" ref={worksPageRef}>
+                <WorksPage isDarkMode={darkMode} />
+            </div>
             <RecomViewPage isDarkMode={darkMode} />
             <Footer isDarkMode={darkMode}/>
         </div>

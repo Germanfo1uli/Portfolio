@@ -209,50 +209,88 @@
 }
 
 .actionBtn, .moreBtn {
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
 }
 
 .actionBtn {
-    background: rgba(107, 107, 107, 0.2);
-    color: inherit;
-    border: none;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #2c3e50;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .dark .actionBtn {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #3a3a3a 0%, #2d2d2d 100%);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .dark .actionBtn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
     transform: translateY(-2px);
 }
 
 .light .actionBtn {
-    background: rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+    color: #2c3e50;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .light .actionBtn:hover {
-    background: rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, #ffffff 0%, #e4e8f0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Стиль specifically для moreBtn */
+.moreBtn {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+    color: #2c3e50;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .moreBtn {
+    background: linear-gradient(135deg, #3a3a3a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .moreBtn:hover {
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
     transform: translateY(-2px);
 }
 
-.moreBtn {
-    background: linear-gradient(90deg, #6b6b6b, #d4d4d4);
-    color: #0a0a0a;
-    border: none;
+.light .moreBtn {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.moreBtn:hover {
-    transform: translateX(5px);
+.light .moreBtn:hover {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Добавляем эффект свечения при фокусе */
+.actionBtn:focus, .moreBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+.dark .actionBtn:focus, .dark .moreBtn:focus {
+    box-shadow: 0 0 0 2px rgba(150, 150, 150, 0.4);
+}
+
 
 @keyframes fadeInUp {
     from {
