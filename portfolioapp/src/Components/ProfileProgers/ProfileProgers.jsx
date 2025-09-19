@@ -38,7 +38,7 @@ const ProfileProgers = () => {
             name: 'Евгений',
             role: 'Backend разработчик',
             image: '/images/evgeny.jpg',
-            skills: ['Python', 'Django', 'PostgreSQL', 'Docker']
+            skills: ['.NET', 'C++', 'PostgreSQL', 'Docker']
         }
     ];
 
