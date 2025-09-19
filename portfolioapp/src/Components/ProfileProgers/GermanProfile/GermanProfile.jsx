@@ -17,24 +17,16 @@ const GermanProfile = () => {
 
     return (
         <div className={`${styles.profileContainer} ${darkMode ? styles.dark : styles.light}`}>
-
-            <div className={styles.backgroundElements}>
-                <div className={styles.bgCircle1}></div>
-                <div className={styles.bgCircle2}></div>
-                <div className={styles.bgCircle3}></div>
-                <div className={styles.bgGrid}></div>
-            </div>
-
             <div className={`${styles.profileContent} ${isVisible ? styles.visible : ''}`}>
 
                 <header className={styles.profileHeader}>
                     <div className={styles.nameContainer}>
-                        <h1 className={styles.profileName}>German</h1>
+                        <h1 className={styles.profileName}>Герман</h1>
                     </div>
                     <p className={styles.profileRole}>Frontend Developer</p>
                     <div className={styles.socialLinks}>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/Germanfo1uli"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.socialLink}
@@ -44,7 +36,7 @@ const GermanProfile = () => {
                             <span className={styles.socialTooltip}>GitHub</span>
                         </a>
                         <a
-                            href="https://t.me"
+                            href="https://t.me/VHasComeToV"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.socialLink}
@@ -52,16 +44,6 @@ const GermanProfile = () => {
                         >
                             <FaTelegram />
                             <span className={styles.socialTooltip}>Telegram</span>
-                        </a>
-                        <a
-                            href="https://steamcommunity.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                            aria-label="Steam"
-                        >
-                            <FaSteam />
-                            <span className={styles.socialTooltip}>Steam</span>
                         </a>
                     </div>
                 </header>
@@ -90,8 +72,6 @@ const GermanProfile = () => {
                         <h2 className={styles.sectionTitle}>Технические навыки</h2>
                     </div>
                     <div className={styles.skillsGrid}>
-
-
                         <div className={styles.skillCategory}>
                             <h3 className={styles.skillCategoryTitle}>Основные технологии</h3>
                             <div className={styles.skillsList}>
@@ -305,7 +285,7 @@ const GermanProfile = () => {
                             <div className={styles.statIcon}>
                                 <FaStar />
                             </div>
-                            <div className={styles.statNumber}>10000%</div>
+                            <div className={styles.statNumber}>99%</div>
                             <div className={styles.statLabel}>Довольных клиентов</div>
                         </div>
                         <div className={styles.statItem}>

@@ -15,10 +15,9 @@ const ProfileProgers = () => {
         id: 'german',
         name: 'Герман',
         role: 'Frontend разработчик',
-        image: '/images/german.jpg',
+        image: '/src/Components/ProfileProgers/avaGerman.jpg',
         skills: ['React', 'JavaScript', 'CSS', 'HTML']
     });
-
     const profiles = [
         {
             id: 'german',
