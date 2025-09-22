@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../ProfileComponents.module.css';
-import { FaGithub, FaTelegram, FaLinkedin, FaReact, FaHtml5, FaCss3Alt, FaJs, FaGitAlt,
-    FaDatabase, FaNpm, FaSass, FaBootstrap, FaNodeJs, FaRocket, FaCode, FaMobile, FaTools,
-    FaLayerGroup, FaPalette, FaLightbulb, FaClock, FaHeart, FaStar, FaServer, FaCloud } from 'react-icons/fa';
-import { SiTypescript, SiRedux, SiWebpack, SiJest, SiTailwindcss,
-    SiMongodb, SiPostgresql, SiExpress, SiNextdotjs, SiDocker } from 'react-icons/si';
+import { 
+  FaGithub, FaTelegram, FaReact, FaHtml5, FaCss3Alt, 
+  FaJs, FaGitAlt, FaDatabase, FaRocket, FaCode, 
+  FaTools, FaLayerGroup, FaLightbulb, FaHeart, FaStar, 
+  FaServer 
+} from 'react-icons/fa';
+import { SiTypescript, SiPostgresql, SiDocker, SiDotnet,SiSwagger } from 'react-icons/si';
 import { useTheme } from '../../../context/ThemeContext';
 
 const NikitaProfile = () => {
@@ -29,12 +31,11 @@ const NikitaProfile = () => {
                 <header className={styles.profileHeader}>
                     <div className={styles.nameContainer}>
                         <h1 className={styles.profileName}>Никита</h1>
-
                     </div>
-                    <p className={styles.profileRole}>Просто тварь</p>
+                    <p className={styles.profileRole}>Full Stack разработчик</p>
                     <div className={styles.socialLinks}>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/Germanfo1uli"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.socialLink}
@@ -44,7 +45,7 @@ const NikitaProfile = () => {
                             <span className={styles.socialTooltip}>GitHub</span>
                         </a>
                         <a
-                            href="https://t.me"
+                            href="https://t.me/Flameyou"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.socialLink}
@@ -53,20 +54,8 @@ const NikitaProfile = () => {
                             <FaTelegram />
                             <span className={styles.socialTooltip}>Telegram</span>
                         </a>
-                        <a
-                            href="https://linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                            aria-label="LinkedIn"
-                        >
-                            <FaLinkedin />
-                            <span className={styles.socialTooltip}>LinkedIn</span>
-                        </a>
                     </div>
                 </header>
-
-
 
                 <section className={styles.aboutSection}>
                     <div className={styles.sectionHeader}>
@@ -78,7 +67,7 @@ const NikitaProfile = () => {
                     <div className={styles.aboutContent}>
                         <p className={styles.aboutText}>
                             Full Stack разработчик с опытом создания полноценных веб-приложений от фронтенда до бэкенда.
-                            Специализируюсь на JavaScript экосистеме, включая React, Node.js и современные базы данных.
+                            Специализируюсь на JavaScript/TypeScript экосистеме для фронтенда и .NET для бэкенда.
                             Способен реализовать проект от идеи до развертывания, обеспечивая высокую производительность
                             и масштабируемость на всех уровнях приложения.
                         </p>
@@ -103,7 +92,7 @@ const NikitaProfile = () => {
                                     <div className={styles.skillInfo}>
                                         <span className={styles.skillName}>HTML5</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '95%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +103,7 @@ const NikitaProfile = () => {
                                     <div className={styles.skillInfo}>
                                         <span className={styles.skillName}>CSS3</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +114,7 @@ const NikitaProfile = () => {
                                     <div className={styles.skillInfo}>
                                         <span className={styles.skillName}>JavaScript</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '92%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '75%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +125,7 @@ const NikitaProfile = () => {
                                     <div className={styles.skillInfo}>
                                         <span className={styles.skillName}>TypeScript</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '88%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '40%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +140,6 @@ const NikitaProfile = () => {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
@@ -160,35 +148,45 @@ const NikitaProfile = () => {
                             <div className={styles.skillsList}>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <FaNodeJs />
+                                        <SiDotnet/>
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Node.js</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <SiExpress />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Express.js</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '88%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <SiPostgresql />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>PostgreSQL</span>
+                                        <span className={styles.skillName}>C#</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.skillItem}>
+                                    <div className={styles.skillIcon}>
+                                        <SiDotnet />
+                                    </div>
+                                    <div className={styles.skillInfo}>
+                                        <span className={styles.skillName}>.NET</span>
+                                        <div className={styles.skillLevel}>
+                                            <div className={styles.skillLevelBar} style={{width: '70%'}}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.skillItem}>
+                                    <div className={styles.skillIcon}>
+                                        <FaDatabase />
+                                    </div>
+                                    <div className={styles.skillInfo}>
+                                        <span className={styles.skillName}>Entity Framework</span>
+                                        <div className={styles.skillLevel}>
+                                            <div className={styles.skillLevelBar} style={{width: '65%'}}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.skillItem}>
+                                    <div className={styles.skillIcon}>
+                                        <FaServer />
+                                    </div>
+                                    <div className={styles.skillInfo}>
+                                        <span className={styles.skillName}>SignalR</span>
+                                        <div className={styles.skillLevel}>
+                                            <div className={styles.skillLevelBar} style={{width: '45%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,22 +201,11 @@ const NikitaProfile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <SiDocker />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Docker</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '75%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
                         <div className={styles.skillCategory}>
-                            <h3 className={styles.skillCategoryTitle}>Инструменты</h3>
+                            <h3 className={styles.skillCategoryTitle}>Инструменты и прочее</h3>
                             <div className={styles.skillsList}>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
@@ -227,27 +214,27 @@ const NikitaProfile = () => {
                                     <div className={styles.skillInfo}>
                                         <span className={styles.skillName}>Git</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '92%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '95%'}}></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <SiWebpack />
+                                        <SiDocker />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Webpack</span>
+                                        <span className={styles.skillName}>Docker</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '50%'}}></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <SiJest />
+                                        <SiPostgresql />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Jest</span>
+                                        <span className={styles.skillName}>PostgreSQL</span>
                                         <div className={styles.skillLevel}>
                                             <div className={styles.skillLevelBar} style={{width: '80%'}}></div>
                                         </div>
@@ -255,23 +242,12 @@ const NikitaProfile = () => {
                                 </div>
                                 <div className={styles.skillItem}>
                                     <div className={styles.skillIcon}>
-                                        <FaNpm />
+                                        <SiSwagger />
                                     </div>
                                     <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>NPM</span>
+                                        <span className={styles.skillName}>Swagger</span>
                                         <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '90%'}}></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.skillItem}>
-                                    <div className={styles.skillIcon}>
-                                        <SiTailwindcss />
-                                    </div>
-                                    <div className={styles.skillInfo}>
-                                        <span className={styles.skillName}>Tailwind</span>
-                                        <div className={styles.skillLevel}>
-                                            <div className={styles.skillLevelBar} style={{width: '85%'}}></div>
+                                            <div className={styles.skillLevelBar} style={{width: '100%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -322,24 +298,24 @@ const NikitaProfile = () => {
                     <div className={styles.statsGrid}>
                         <div className={styles.statItem}>
                             <div className={styles.statIcon}>
-                                <FaClock />
-                            </div>
-                            <div className={styles.statNumber}>12+</div>
-                            <div className={styles.statLabel}>Завершенных проектов</div>
-                        </div>
-                        <div className={styles.statItem}>
-                            <div className={styles.statIcon}>
                                 <FaHeart />
                             </div>
-                            <div className={styles.statNumber}>2+</div>
+                            <div className={styles.statNumber}>0+</div>
                             <div className={styles.statLabel}>Года опыта</div>
                         </div>
                         <div className={styles.statItem}>
                             <div className={styles.statIcon}>
                                 <FaServer />
                             </div>
-                            <div className={styles.statNumber}>8+</div>
+                            <div className={styles.statNumber}>1+</div>
                             <div className={styles.statLabel}>Backend проектов</div>
+                        </div>
+                        <div className={styles.statItem}>
+                            <div className={styles.statIcon}>
+                                <FaServer />
+                            </div>
+                            <div className={styles.statNumber}>1+</div>
+                            <div className={styles.statLabel}>Frontend проектов</div>
                         </div>
                         <div className={styles.statItem}>
                             <div className={styles.statIcon}>
@@ -350,8 +326,6 @@ const NikitaProfile = () => {
                         </div>
                     </div>
                 </section>
-
-
             </div>
         </div>
     );

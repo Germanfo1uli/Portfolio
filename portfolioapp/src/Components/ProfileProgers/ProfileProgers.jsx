@@ -29,9 +29,9 @@ const ProfileProgers = () => {
         {
             id: 'nikita',
             name: 'Никита',
-            role: 'Скотина',
+            role: 'Full-stack/Team-Lead',
             image: '/images/nikita.jpg',
-            skills: ['React', 'Node.js', 'MongoDB', 'Express']
+            skills: ['React', '.NET', 'PostgreSQL', 'Docker']
         },
         {
             id: 'evgeny',
